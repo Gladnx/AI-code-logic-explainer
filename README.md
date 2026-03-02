@@ -1,16 +1,28 @@
-# React + Vite
+# AI Code Logic Explainer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**AI Code Logic Explainer** is an intelligent developer tool designed to analyze code snippets and provide clear, human-readable explanations of the underlying logic. Leveraging the power of Google's AI models and a robust code editing interface, this project aims to help developers understand complex algorithms and codebases faster.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Interactive Code Editor**: Built with [Monaco Editor](https://github.com/suren-atoyan/monaco-react) (the engine behind VS Code) for a familiar coding experience with syntax highlighting.
+- **AI-Powered Analysis**: Utilizes advanced AI models to parse and explain code logic in natural language.
+- **Rich Text Output**: Explanations are rendered in formatted Markdown using [React Markdown](https://github.com/remarkjs/react-markdown).
+- **Secure Integration**: Uses [Google Auth Library](https://github.com/googleapis/google-auth-library-nodejs) for secure authentication and API interaction.
 
-## React Compiler
+## 🛠️ Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend**: React
+- **Code Editor**: @monaco-editor/react
+- **Markdown Rendering**: react-markdown, micromark
+- **Authentication/AI**: google-auth-library
+- **Utilities**: picomatch, is-glob
 
-## Expanding the ESLint configuration
+<br>
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**Environment Configuration**
+    Create a `.env` file in the root directory and add your necessary API keys (e.g., Google Cloud Project ID, API Keys).
+
+    ```env
+    # Example configuration
+    VITE_GEMINI_API_KEY="your_api_key_here"
+    ```

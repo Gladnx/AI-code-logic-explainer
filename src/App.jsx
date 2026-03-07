@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './App.css'
-import Navbar from './components/navbar'
+import Navbar from './components/Navbar'
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import Hero from './components/Hero'
 import CodeLogic from './components/CodeLogic'

@@ -5,7 +5,7 @@ import ReactMarkdown from 'react-markdown'
 
 const CodeLogic = ({ selectedLanguage, setSelectedLanguage, options, customStyles, code, setCode, explainCode, loading, output }) => {
   return (
-    <div className="w-full bg-[#080915] flex flex-col">
+    <div id="code-logic" className="w-full bg-[#080915] flex flex-col">
       <h1 className="text-4xl font-bold text-center py-6 "> <span className='text-transparent bg-clip-text bg-linear-to-r from-blue-400 via-indigo-500 to-purple-500'>AI Powered</span> Code Logic Explainer</h1>
       <div className='main flex items-start justify-between' style={{height: 'calc(100vh - 90px)'}}>
 
@@ -18,7 +18,7 @@ const CodeLogic = ({ selectedLanguage, setSelectedLanguage, options, customStyle
             styles={customStyles}
           />
             <button onClick={() => {
-              if (code === "") {
+              if (!code?.trim()) {
                 alert("Please enter code first")
               }
               else {
@@ -36,7 +36,7 @@ const CodeLogic = ({ selectedLanguage, setSelectedLanguage, options, customStyle
             theme='vs-dark' 
             language={selectedLanguage.value} 
             value={code}
-            onChange={(value) => setCode(value)}
+            onChange={(value) => setCode(value || "")}
           />
         </div>
         <div className='right h-[90%] w-[50%] mt-8 mr-4 bg-[#1e1e1e] overflow-auto p-4'>

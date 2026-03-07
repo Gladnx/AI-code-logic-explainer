@@ -16,7 +16,7 @@ const App = () => {
   ]
 
   const [selectedLanguage, setSelectedLanguage] = useState(options[0]);
-  const [code, setCode] = useState("// Write your code here...");
+  const [code, setCode] = useState("");
   const [output, setOutput] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -48,6 +48,12 @@ const App = () => {
   };
 
   const explainCode = async () => {
+    const sanitizedCode = code.trim();
+    if (!sanitizedCode) {
+      setOutput("Please enter code first.");
+      return;
+    }
+
     const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
     if (!apiKey) {
       setOutput("Error: API key is missing. Please create a .env file in the project root with VITE_GEMINI_API_KEY=your_api_key and restart the server.");
@@ -60,7 +66,7 @@ const App = () => {
       const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
       
       const result = await model.generateContent(
-        `Explain the logic of this ${selectedLanguage.value} code clearly and concisely in Markdown format:\n\n${code}`
+        `Explain the logic of this ${selectedLanguage.value} code clearly and concisely in Markdown format:\n\n${sanitizedCode}`
       );
       setOutput(result.response.text());
     } catch (error) {
